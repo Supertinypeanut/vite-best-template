@@ -1,0 +1,1172 @@
+{
+  "swagger": "2.0",
+  "info": { "version": "1.0", "title": "Yodo1 Payment接口" },
+  "host": "payment-api.yodo1.me",
+  "basePath": "api",
+  "paths": {
+    "/api/quickpay/getMonthlyData": {
+      "get": {
+        "tags": ["BACKEND"],
+        "summary": "Get Monthly Csv",
+        "operationId": "get_monthly_csv_api_quickpay_getMonthlyData_get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Cycle",
+              "type": "string"
+            },
+            "name": "cycle",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/deductFromData": {
+      "post": {
+        "tags": ["BACKEND"],
+        "summary": "Deductdate",
+        "operationId": "deductDate_api_quickpay_deductFromData_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Ordata",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/getData": {
+      "get": {
+        "tags": ["BACKEND"],
+        "summary": "Get All Data",
+        "operationId": "get_all_data_api_quickpay_getData_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/input_appid": {
+      "get": {
+        "tags": ["BACKEND"],
+        "summary": "App In Result",
+        "operationId": "app_in_result_api_quickpay_input_appid_get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Date",
+              "type": "string"
+            },
+            "name": "date",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/": {
+      "get": {
+        "tags": ["BACKEND"],
+        "summary": "Read Root",
+        "operationId": "read_root_api_quickpay__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Date",
+              "type": "string"
+            },
+            "name": "date",
+            "in": "query"
+          },
+          {
+            "required": true,
+            "schema": {
+              "title": "Channel",
+              "type": "string"
+            },
+            "name": "channel",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/temporary/add_history": {
+      "get": {
+        "tags": ["BACKEND"],
+        "summary": "Temporary Add History",
+        "operationId": "temporary_add_history_api_quickpay_temporary_add_history_get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Date",
+              "type": "string"
+            },
+            "name": "date",
+            "in": "query"
+          },
+          {
+            "required": true,
+            "schema": {
+              "title": "Network",
+              "type": "string"
+            },
+            "name": "network",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/app/{item_id}": {
+      "get": {
+        "tags": ["COMMON"],
+        "summary": "Read App",
+        "operationId": "read_app_api_quickpay_app__item_id__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Item Id",
+              "type": "integer"
+            },
+            "name": "item_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppListOutSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/shareratio/{item_id}": {
+      "get": {
+        "tags": ["COMMON"],
+        "summary": "Get Shareratio",
+        "operationId": "get_shareratio_api_quickpay_shareratio__item_id__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Item Id",
+              "type": "string"
+            },
+            "name": "item_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShareRatioOutSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/shareratio/": {
+      "get": {
+        "tags": ["COMMON"],
+        "summary": "List Shareratio",
+        "operationId": "list_shareratio_api_quickpay_shareratio__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response List Shareratio Api Quickpay Shareratio  Get",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShareRatioOutSchema"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/shareratio/add": {
+      "post": {
+        "tags": ["COMMON"],
+        "summary": "Add Shareratio",
+        "operationId": "add_shareratio_api_quickpay_shareratio_add_post",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "name": "id",
+            "in": "query"
+          },
+          {
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "type": "string"
+            },
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "required": true,
+            "schema": {
+              "title": "Value",
+              "type": "number"
+            },
+            "name": "value",
+            "in": "query"
+          },
+          {
+            "required": true,
+            "schema": {
+              "title": "Note",
+              "type": "string"
+            },
+            "name": "note",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShareRatioOutSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/app/": {
+      "get": {
+        "tags": ["COMMON"],
+        "summary": "List App",
+        "operationId": "list_app_api_quickpay_app__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response List App Api Quickpay App  Get",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AppListOutSchema"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/app/changeShareRatio/lists": {
+      "get": {
+        "tags": ["COMMON"],
+        "summary": "Change Ratio List",
+        "operationId": "change_ratio_list_api_quickpay_app_changeShareRatio_lists_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Change Ratio List Api Quickpay App Changeshareratio Lists Get",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShareRatioChangeLogOutSchema"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/app/changeShareRatio": {
+      "post": {
+        "tags": ["BACKEND"],
+        "summary": "Change Ratio",
+        "operationId": "change_ratio_api_quickpay_app_changeShareRatio_post",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Appkey",
+              "type": "string"
+            },
+            "name": "appkey",
+            "in": "query"
+          },
+          {
+            "required": true,
+            "schema": {
+              "title": "New Shareratio",
+              "type": "string"
+            },
+            "name": "new_shareratio",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/search/email": {
+      "get": {
+        "tags": ["UI"],
+        "summary": "Search Email",
+        "operationId": "search_email_api_quickpay_search_email_get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Email",
+              "type": "string"
+            },
+            "name": "email",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/get/payeeStatus": {
+      "get": {
+        "tags": ["UI"],
+        "summary": "Get Payee Status",
+        "operationId": "get_payee_status_api_quickpay_get_payeeStatus_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/get/payStatus": {
+      "get": {
+        "tags": ["UI"],
+        "summary": "Get Pay Status",
+        "operationId": "get_pay_status_api_quickpay_get_payStatus_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/cpm/create": {
+      "post": {
+        "tags": ["UI"],
+        "summary": "Create Cpm",
+        "operationId": "create_cpm_api_quickpay_cpm_create_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Data",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/cpm/lists": {
+      "post": {
+        "tags": ["UI"],
+        "summary": "Get Cpm Lists",
+        "operationId": "get_cpm_lists_api_quickpay_cpm_lists_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Data",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/history/lists": {
+      "post": {
+        "tags": ["UI"],
+        "summary": "History Lists",
+        "operationId": "history_lists_api_quickpay_history_lists_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Data",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/settlement/get": {
+      "get": {
+        "tags": ["UI"],
+        "summary": "Get Settlement",
+        "operationId": "get_settlement_api_quickpay_settlement_get_get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Settlement Id",
+              "type": "integer"
+            },
+            "name": "settlement_id",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/payment/lists": {
+      "post": {
+        "tags": ["UI"],
+        "summary": "Payment Lists",
+        "operationId": "payment_lists_api_quickpay_payment_lists_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Data",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/tipalti/submit": {
+      "post": {
+        "tags": ["UI"],
+        "summary": "Tipalti Submit",
+        "operationId": "tipalti_submit_api_quickpay_tipalti_submit_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Data",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/quickpay/export/data": {
+      "post": {
+        "tags": ["UI"],
+        "summary": "Export Data",
+        "operationId": "export_data_api_quickpay_export_data_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Data",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "xlsx",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/api/health_check": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_api_health_check_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/version": {
+      "get": {
+        "summary": "Get Version",
+        "operationId": "get_version_api_version_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AppListOutSchema": {
+        "title": "AppListOutSchema",
+        "required": [
+          "created_at",
+          "updated_at",
+          "appkey",
+          "owner",
+          "shareratio",
+          "note",
+          "is_deleted"
+        ],
+        "type": "object",
+        "properties": {
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "appkey": {
+            "title": "Appkey",
+            "type": "string"
+          },
+          "owner": {
+            "title": "Owner",
+            "type": "string"
+          },
+          "shareratio": {
+            "$ref": "#/components/schemas/ShareRatioOutSchema"
+          },
+          "note": {
+            "title": "Note",
+            "type": "string"
+          },
+          "is_deleted": {
+            "title": "Is Deleted",
+            "type": "boolean"
+          }
+        }
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "ShareRatioChangeLogOutSchema": {
+        "title": "ShareRatioChangeLogOutSchema",
+        "required": [
+          "created_at",
+          "updated_at",
+          "id",
+          "appkey",
+          "old_shareratio",
+          "new_shareratio",
+          "operator"
+        ],
+        "type": "object",
+        "properties": {
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "appkey": {
+            "title": "Appkey",
+            "type": "string"
+          },
+          "old_shareratio": {
+            "$ref": "#/components/schemas/ShareRatioOutSchema"
+          },
+          "new_shareratio": {
+            "$ref": "#/components/schemas/ShareRatioOutSchema"
+          },
+          "operator": {
+            "title": "Operator",
+            "type": "string"
+          }
+        }
+      },
+      "ShareRatioOutSchema": {
+        "title": "ShareRatioOutSchema",
+        "required": [
+          "created_at",
+          "updated_at",
+          "id",
+          "name",
+          "value",
+          "note",
+          "is_deleted"
+        ],
+        "type": "object",
+        "properties": {
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          },
+          "note": {
+            "title": "Note",
+            "type": "string"
+          },
+          "is_deleted": {
+            "title": "Is Deleted",
+            "type": "boolean"
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": ["loc", "msg", "type"],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "JWTBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "BACKEND",
+      "description": "***DO NOT*** TOUCH THIS API"
+    },
+    {
+      "name": "COMMON",
+      "description": "Some Common API"
+    },
+    {
+      "name": "UI",
+      "description": "API For FrontEnd UI"
+    }
+  ]
+}

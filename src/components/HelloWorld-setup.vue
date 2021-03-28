@@ -33,29 +33,32 @@
   </p>
 </template>
 
-<script lang="ts">
-import { ref, defineComponent, SetupContext } from "vue";
-export default defineComponent({
-  name: "HelloWorld",
-  props: {
-    msg: {
-      type: String,
-      required: true,
-    },
-  },
-  emits: ["default-click"],
-  setup: (props, context: SetupContext) => {
-    const count = ref(0);
+<script setup lang="ts">
+import { ref, defineProps, defineEmit, useContext } from "vue";
 
-    const onClick = () => {
-      count.value++;
-
-      // 发布事件
-      context.emit("default-click");
-    };
-    return { count, onClick };
+// 获取props
+const props = defineProps({
+  msg: {
+    type: String,
+    required: true,
   },
 });
+
+// 获取上下文
+const ctx = useContext();
+
+// 定义事件
+const emits = defineEmit(["setup-click"]);
+
+// 定义变量
+const count = ref(0);
+const onClick = () => {
+  count.value++;
+
+  // 发布事件
+  // emits('setup-click')
+  ctx.emit("setup-click");
+};
 </script>
 
 <style scoped>
