@@ -2,15 +2,16 @@
   "name": "vite-best-template",
   "version": "0.0.0",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "dev": "cross-env NODE_ENV=development vite --mode dev",
+    "build": "vue-tsc --noEmit && vite build --mode prod",
     "serve": "vite preview",
     "gen-services": "npx swagger2js gen ./swagger-serveces-api.json"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "mockjs": "^1.1.0",
-    "vue": "^3.0.5"
+    "vue": "^3.0.5",
+    "vue-router": "^4.0.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.1.5",
