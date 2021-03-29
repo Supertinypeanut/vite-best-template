@@ -35,6 +35,7 @@
 
 <script lang="ts">
 import { ref, defineComponent, SetupContext } from "vue";
+import axios from "axios";
 export default defineComponent({
   name: "HelloWorld",
   props: {
@@ -53,6 +54,16 @@ export default defineComponent({
       // 发布事件
       context.emit("default-click");
     };
+
+    // 发送请求
+    axios
+      .get("/api/getRoleById", {
+        params: {
+          id: 2,
+        },
+      })
+      .then((res) => console.log(res));
+
     return { count, onClick };
   },
 });

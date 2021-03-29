@@ -1,22 +1,22 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" @defaultClick="onClick" />
-  <hello-world-setup
+  <!-- <HelloWorldSetup
     msg="Hello Vue 3 + TypeScript + Vite"
     @setupClick="onSetupClick"
-  />
+  /> -->
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "comps/HelloWorld.vue";
-import HelloWorldSetup from "comps/HelloWorld-setup.vue";
+import HelloWorld from "@/components/HelloWorld.vue";
+// import HelloWorldSetup from "@/components/HelloWorld-setup.vue";
 
 export default defineComponent({
   name: "App",
   components: {
     HelloWorld,
-    HelloWorldSetup,
+    // HelloWorldSetup,
   },
   setup() {
     const onClick = () => {
