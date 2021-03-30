@@ -4,6 +4,7 @@ const VITE_APP_BASE_PATH = import.meta.env.VITE_APP_BASE_PATH as string
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
+        name: 'Home',
         component: ()=> import('@/views/Home.vue')
     },
     {

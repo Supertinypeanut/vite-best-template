@@ -10,7 +10,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
 import router from "@/routes";
 
 export default defineComponent({
-  name: "App",
+  name: "Home",
   components: {
     HelloWorld,
   },
@@ -29,5 +29,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style></style>

@@ -36,7 +36,6 @@
 <script lang="ts">
 import { ref, defineComponent, SetupContext } from "vue";
 import axios from "axios";
-import { VITE_APP_BASE } from "@/routes";
 export default defineComponent({
   name: "HelloWorld",
   props: {
