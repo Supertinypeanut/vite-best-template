@@ -1,18 +1,23 @@
-import axios from 'axios'
+import axios, { Method} from 'axios'
 
-export interface IAxiosService {
-  post(url: string, data?: any): Promise<any>
-  get(url: string, param?: any): Promise<any>
+interface FetchService {
+	post(url: string, data?: unknown): Promise<any>
+	get(url: string, param?: unknown): Promise<any>
+	request(config: FetchRequest): Promise<any>
 }
-
+interface FetchRequest {
+	method: Method
+	url: string
+	params: unknown
+	payload: any
+	extends?: any
+}
 // axios 配置
 function getInstance(serverPath: string) {
   const http = axios.create({
     baseURL: serverPath,
     timeout: 50000,
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-    },
+    headers: {},
     withCredentials: true,
   })
   /* request拦截器 */
@@ -42,42 +47,34 @@ function getInstance(serverPath: string) {
   return http
 }
 
-function getQueryResult(result: any) {
-  return result
+class HttpClient implements FetchService {
+	private $http
+	constructor(apiPath: string) {
+		this.$http = getInstance(apiPath)
+	}
+	public async request(config: FetchRequest) {
+		const result = await this.$http.request({
+			url: config.url,
+			method: config.method,
+			params: config.params,
+			data: config.payload,
+			...config.extends,
+		})
+		return result.data
+	}
+	public async post(url: string, data?: unknown) {
+		const result = await this.$http.post(url, data)
+		return result.data
+	}
+	public async get(url: string, param?: unknown) {
+		const result = await this.$http({
+			url,
+			method: 'get',
+			params: param,
+			withCredentials: true,
+		})
+		return result.data
+	}
 }
 
-function getActionResult(result: any) {
-  return result
-}
-
-export default class Service implements IAxiosService {
-  public static exception(res: any) {
-    return true
-  }
-  public static catchExceptionError(fn: any) {
-    Service.exception = fn
-  }
-  private $apiPath = ''
-  public constructor(apiPath: string) {
-    this.$apiPath = apiPath
-  }
-
-  public async post(url: string, data?: any) {
-    const result = await getInstance(this.$apiPath).post(url, data)
-    return result.data
-  }
-
-  public async get(url: string, param?: any) {
-    const ajax = getInstance(this.$apiPath)
-    const result = await ajax({
-      url,
-      method: 'get',
-      params: param,
-      withCredentials: true,
-      // headers: { 'Content-Type': 'text/plain' },
-    })
-    return result.data
-  }
-}
-
-export { getQueryResult, getActionResult, Service }
+export { HttpClient, FetchService }

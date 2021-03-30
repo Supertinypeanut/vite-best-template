@@ -1,9 +1,11 @@
 import http, {
-    Service as IAxiosService,
+	FetchService,
+	HttpClient,
   } from './axios'
 
 
 
   export {
-      IAxiosService
+		FetchService,
+		HttpClient,
   }

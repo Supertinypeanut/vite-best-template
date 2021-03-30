@@ -1,8 +1,8 @@
 import {
-    IAxiosService
+    HttpClient as IAxiosService
 } from '@/utils';
 /**
- * 
+ *
  * @class Test
  * @param {(string)} [domainOrOptions] - The project domain.
  */
