@@ -7,7 +7,7 @@ module.exports = {
 	},
 	extends: [
 		'eslint:recommended',
-		'plugin:vue/vue3-essential',
+		'plugin:vue/essential',
 		'plugin:prettier/recommended',
 		'plugin:@typescript-eslint/recommended',
 	],
@@ -16,7 +16,7 @@ module.exports = {
 		parser: '@typescript-eslint/parser',
 		sourceType: 'module',
 	},
-	// plugins: ['vue', '@typescript-eslint', 'prettier'],
+	plugins: ['vue', '@typescript-eslint', 'prettier'],
 	rules: {
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
 	},
