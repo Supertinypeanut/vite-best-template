@@ -6,8 +6,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useRouter } from 'vue-router'
 import HelloWorld from '@/components/HelloWorld.vue'
-import router from '@/routes'
 
 export default defineComponent({
 	name: 'Home',
@@ -15,6 +15,8 @@ export default defineComponent({
 		HelloWorld,
 	},
 	setup() {
+		const router = useRouter()
+
 		const onClick = () => {
 			console.log('default-click')
 		}

@@ -1,4 +1,4 @@
-import axios, { Method} from 'axios'
+import axios, { Method } from 'axios'
 
 interface FetchService {
 	post(url: string, data?: unknown): Promise<any>
@@ -14,37 +14,34 @@ interface FetchRequest {
 }
 // axios 配置
 function getInstance(serverPath: string) {
-  const http = axios.create({
-    baseURL: serverPath,
-    timeout: 50000,
-    headers: {},
-    withCredentials: true,
-  })
-  /* request拦截器 */
-  http.interceptors.request.use(
-    (config: any) => {
-      return config
-    },
-    (error: any) => {
-      Promise.reject(error)
-    }
-  )
-  /* respone拦截器 */
-  http.interceptors.response.use(
-    (res: any) => {
-      if (res.data instanceof Blob) {
-        return res
-      }
-      return Promise.resolve(res)
-    },
-    (error: any) => {
-      if (error.response) {
-      } else {
-        return Promise.reject(error)
-      }
-    }
-  )
-  return http
+	const http = axios.create({
+		baseURL: serverPath,
+		timeout: 50000,
+		headers: {},
+		withCredentials: true,
+	})
+	/* request拦截器 */
+	http.interceptors.request.use(
+		(config: any) => {
+			return config
+		},
+		(error: any) => {
+			Promise.reject(error)
+		}
+	)
+	/* respone拦截器 */
+	http.interceptors.response.use(
+		(res: any) => {
+			if (res.data instanceof Blob) {
+				return res
+			}
+			return Promise.resolve(res)
+		},
+		(error: any) => {
+			return Promise.reject(error)
+		}
+	)
+	return http
 }
 
 class HttpClient implements FetchService {

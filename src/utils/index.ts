@@ -1,11 +1,4 @@
-import http, {
-	FetchService,
-	HttpClient,
-  } from './axios'
+export * from './axios'
+import Watcher from './watcher'
 
-
-
-  export {
-		FetchService,
-		HttpClient,
-  }
+export { Watcher }

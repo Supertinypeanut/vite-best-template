@@ -35,7 +35,8 @@
 
 <script lang="ts">
 import { ref, defineComponent, SetupContext } from 'vue'
-import axios from 'axios'
+import { useProjectServiceInject } from '@/hooks'
+
 export default defineComponent({
 	name: 'HelloWorld',
 	props: {
@@ -45,8 +46,16 @@ export default defineComponent({
 		},
 	},
 	emits: ['default-click'],
-	setup: (props, context: SetupContext) => {
+	setup: (_, context: SetupContext) => {
 		const count = ref(0)
+		const projectService = useProjectServiceInject()
+
+		// 接口请求
+		projectService
+			.GetMonthlyDataQuickpayApiGET('GetMonthlyDataQuickpayApiGET')
+			.then(res => {
+				console.log('projectService:', res)
+			})
 
 		const onClick = () => {
 			count.value++
@@ -55,14 +64,6 @@ export default defineComponent({
 			context.emit('default-click')
 		}
 
-		// 发送请求
-		axios
-			.get('/api/getRoleById', {
-				params: {
-					id: 2,
-				},
-			})
-			.then(res => console.log(res))
 		return { count, onClick }
 	},
 })
