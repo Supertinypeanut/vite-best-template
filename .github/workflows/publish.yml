@@ -1,9 +1,9 @@
 name: 打包应用并上传阿里云
 
 on:
-  [push, pull_request]:
-  	branches:
-			- 'main'
+  push:
+    branches:
+      - dev
 
 jobs:
   build:
@@ -37,12 +37,12 @@ jobs:
           # 私钥
           SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           # scp参数
-          ARGS: "-avzr --delete"
+          ARGS: '-avzr --delete'
           # 源目录
-          SOURCE: "dist"
+          SOURCE: 'dist'
           # 服务器ip：换成你的服务器IP
-          REMOTE_HOST: "192.168.43.162"
+          REMOTE_HOST: '192.168.43.162'
           # 用户
-          REMOTE_USER: "root"
+          REMOTE_USER: 'root'
           # 目标地址
-          TARGET: "/root/vite-best-template"
+          TARGET: '/root/vite-best-template'
