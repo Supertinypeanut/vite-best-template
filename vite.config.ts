@@ -1,27 +1,17 @@
-import { UserConfigExport, ConfigEnv } from 'vite'
+import { UserConfigExport, ConfigEnv } from "vite";
 // https://github.com/anncwb/vite-plugin-mock
-import { viteMockServe } from 'vite-plugin-mock'
-import vue from '@vitejs/plugin-vue'
-import path from 'path'
+import { viteMockServe } from "vite-plugin-mock";
+import vue from "@vitejs/plugin-vue";
+import path from "path";
 
 // https://vitejs.dev/config/
-export default({command}: ConfigEnv): UserConfigExport =>{
-
+export default ({ command }: ConfigEnv): UserConfigExport => {
   return {
-    resolve:{
-      alias:{
+    resolve: {
+      alias: {
         "@": path.resolve("src"),
       },
     },
-    plugins: [vue(), viteMockServe({
-      mockPath: 'mock',
-      localEnabled: command === 'serve',
-      prodEnabled: command !== 'serve',
-      injectCode: `
-        import { setupProdMockServer } from './mockProdServer';
-        setupProdMockServer();
-      `,
-      logger: true,
-    })]
-  }
-}
+    plugins: [vue(), viteMockServe({})],
+  };
+};

@@ -2,7 +2,7 @@
 	<img alt="Vue logo" src="./assets/logo.png" />
 	<router-view #slot="{ Component }">
 		<transition name="fade-transform" mode="out-in">
-			<component :key="routeComponentKey" :is="Component" />
+			<component :is="Component" :key="routeComponentKey" />
 		</transition>
 	</router-view>
 </template>

@@ -1,10 +1,12 @@
 <template>
-	<h1>SETUP</h1>
-	<!-- <HelloWorldSetup
+  <h1>SETUP</h1>
+  <!-- <HelloWorldSetup
     msg="Hello Vue 3 + TypeScript + Vite"
     @setupClick="onSetupClick"
   /> -->
-	<button @click="onToHome">to Home page</button>
+  <button @click="onToHome">
+    to Home page
+  </button>
 </template>
 
 <script lang="ts">
