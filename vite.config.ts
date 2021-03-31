@@ -12,6 +12,10 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
         "@": path.resolve("src"),
       },
     },
-    plugins: [vue(), viteMockServe({})],
+    plugins: [vue(), viteMockServe({
+			mockPath: 'mock',
+      localEnabled: command === 'serve',
+      prodEnabled: command !== 'serve',
+		})],
   };
 };

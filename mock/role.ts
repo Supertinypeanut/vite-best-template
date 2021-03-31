@@ -1,5 +1,12 @@
 import { MockMethod } from 'vite-plugin-mock'
-import { Response } from './type'
+
+interface Response {
+	query: {
+		cycle?: string
+		id: string
+	}
+	body: unknown
+}
 
 export default [
 	{
