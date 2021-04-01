@@ -1,164 +1,180 @@
 declare namespace typing {
-	interface ServiceAuto {
-		/**
-		 * Get Monthly Csv
-		 * @method
-		 */
-		GetMonthlyDataQuickpayApiGET(cycle: string): Promise<{}>
 
-		/**
-		 * Deductdate
-		 * @method
-		 */
-		DeductFromDataQuickpayApiPOST(): Promise<{}>
+    interface ServiceAuto {
 
-		/**
-		 * Get All Data
-		 * @method
-		 */
-		GetDataQuickpayApiGET(): Promise<{}>
+        /**
+         * Get Monthly Csv
+         * @method
+         */
+        GetMonthlyDataQuickpayApiGET(cycle: string, ): Promise < {} >
+        ;
 
-		/**
-		 * App In Result
-		 * @method
-		 */
-		Input_appidQuickpayApiGET(date: string): Promise<{}>
+        /**
+         * Deductdate
+         * @method
+         */
+        DeductFromDataQuickpayApiPOST(): Promise < {} >
+        ;
 
-		/**
-		 * Read Root
-		 * @method
-		 */
-		QuickpayApiGET(date: string, channel: string): Promise<{}>
+        /**
+         * Get All Data
+         * @method
+         */
+        GetDataQuickpayApiGET(): Promise < {} >
+        ;
 
-		/**
-		 * Temporary Add History
-		 * @method
-		 */
-		Add_historyTemporaryQuickpayApiGET(
-			date: string,
-			network: string
-		): Promise<{}>
+        /**
+         * App In Result
+         * @method
+         */
+        Input_appidQuickpayApiGET(date: string, ): Promise < {} >
+        ;
 
-		/**
-		 * Read App
-		 * @method
-		 */
-		Item_idAppQuickpayApiGET(item_id: number): Promise<{}>
+        /**
+         * Read Root
+         * @method
+         */
+        QuickpayApiGET(date: string, channel: string, ): Promise < {} >
+        ;
 
-		/**
-		 * Get Shareratio
-		 * @method
-		 */
-		Item_idShareratioQuickpayApiGET(item_id: string): Promise<{}>
+        /**
+         * Temporary Add History
+         * @method
+         */
+        Add_historyTemporaryQuickpayApiGET(date: string, network: string, ): Promise < {} >
+        ;
 
-		/**
-		 * List Shareratio
-		 * @method
-		 */
-		ShareratioQuickpayApiGET(): Promise<{}>
+        /**
+         * Read App
+         * @method
+         */
+        Item_idAppQuickpayApiGET(item_id: number, ): Promise < {} >
+        ;
 
-		/**
-		 * Add Shareratio
-		 * @method
-		 */
-		AddShareratioQuickpayApiPOST(
-			id: string,
-			name: string,
-			value: number,
-			note: string
-		): Promise<{}>
+        /**
+         * Get Shareratio
+         * @method
+         */
+        Item_idShareratioQuickpayApiGET(item_id: string, ): Promise < {} >
+        ;
 
-		/**
-		 * List App
-		 * @method
-		 */
-		AppQuickpayApiGET(): Promise<{}>
+        /**
+         * List Shareratio
+         * @method
+         */
+        ShareratioQuickpayApiGET(): Promise < {} >
+        ;
 
-		/**
-		 * Change Ratio List
-		 * @method
-		 */
-		ListsChangeShareRatioAppQuickpayApiGET(): Promise<{}>
+        /**
+         * Add Shareratio
+         * @method
+         */
+        AddShareratioQuickpayApiPOST(id: string, name: string, value: number, note: string, ): Promise < {} >
+        ;
 
-		/**
-		 * Change Ratio
-		 * @method
-		 */
-		ChangeShareRatioAppQuickpayApiPOST(
-			appkey: string,
-			new_shareratio: string
-		): Promise<{}>
+        /**
+         * List App
+         * @method
+         */
+        AppQuickpayApiGET(): Promise < {} >
+        ;
 
-		/**
-		 * Search Email
-		 * @method
-		 */
-		EmailSearchQuickpayApiGET(email: string): Promise<{}>
+        /**
+         * Change Ratio List
+         * @method
+         */
+        ListsChangeShareRatioAppQuickpayApiGET(): Promise < {} >
+        ;
 
-		/**
-		 * Get Payee Status
-		 * @method
-		 */
-		PayeeStatusGetQuickpayApiGET(): Promise<{}>
+        /**
+         * Change Ratio
+         * @method
+         */
+        ChangeShareRatioAppQuickpayApiPOST(appkey: string, new_shareratio: string, ): Promise < {} >
+        ;
 
-		/**
-		 * Get Pay Status
-		 * @method
-		 */
-		PayStatusGetQuickpayApiGET(): Promise<{}>
+        /**
+         * Search Email
+         * @method
+         */
+        EmailSearchQuickpayApiGET(email: string, ): Promise < {} >
+        ;
 
-		/**
-		 * Create Cpm
-		 * @method
-		 */
-		CreateCpmQuickpayApiPOST(): Promise<{}>
+        /**
+         * Get Payee Status
+         * @method
+         */
+        PayeeStatusGetQuickpayApiGET(): Promise < {} >
+        ;
 
-		/**
-		 * Get Cpm Lists
-		 * @method
-		 */
-		ListsCpmQuickpayApiPOST(): Promise<{}>
+        /**
+         * Get Pay Status
+         * @method
+         */
+        PayStatusGetQuickpayApiGET(): Promise < {} >
+        ;
 
-		/**
-		 * History Lists
-		 * @method
-		 */
-		ListsHistoryQuickpayApiPOST(): Promise<{}>
+        /**
+         * Create Cpm
+         * @method
+         */
+        CreateCpmQuickpayApiPOST(): Promise < {} >
+        ;
 
-		/**
-		 * Get Settlement
-		 * @method
-		 */
-		GetSettlementQuickpayApiGET(settlement_id: number): Promise<{}>
+        /**
+         * Get Cpm Lists
+         * @method
+         */
+        ListsCpmQuickpayApiPOST(): Promise < {} >
+        ;
 
-		/**
-		 * Payment Lists
-		 * @method
-		 */
-		ListsPaymentQuickpayApiPOST(): Promise<{}>
+        /**
+         * History Lists
+         * @method
+         */
+        ListsHistoryQuickpayApiPOST(): Promise < {} >
+        ;
 
-		/**
-		 * Tipalti Submit
-		 * @method
-		 */
-		SubmitTipaltiQuickpayApiPOST(): Promise<{}>
+        /**
+         * Get Settlement
+         * @method
+         */
+        GetSettlementQuickpayApiGET(settlement_id: number, ): Promise < {} >
+        ;
 
-		/**
-		 * Export Data
-		 * @method
-		 */
-		DataExportQuickpayApiPOST(): Promise<{}>
+        /**
+         * Payment Lists
+         * @method
+         */
+        ListsPaymentQuickpayApiPOST(): Promise < {} >
+        ;
 
-		/**
-		 * Health
-		 * @method
-		 */
-		Health_checkApiGET(): Promise<{}>
+        /**
+         * Tipalti Submit
+         * @method
+         */
+        SubmitTipaltiQuickpayApiPOST(): Promise < {} >
+        ;
 
-		/**
-		 * Get Version
-		 * @method
-		 */
-		VersionApiGET(): Promise<{}>
-	}
+        /**
+         * Export Data
+         * @method
+         */
+        DataExportQuickpayApiPOST(): Promise < {} >
+        ;
+
+        /**
+         * Health
+         * @method
+         */
+        Health_checkApiGET(): Promise < {} >
+        ;
+
+        /**
+         * Get Version
+         * @method
+         */
+        VersionApiGET(): Promise < {} >
+        ;
+    }
 }

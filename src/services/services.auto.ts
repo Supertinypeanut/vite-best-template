@@ -1,5 +1,5 @@
 import {
-    HttpClient as IAxiosService
+	HttpClient as IAxiosService
 } from '@/utils';
 /**
  *
