@@ -1,5 +1,5 @@
 <template>
-	<img alt="Vue logo" src="./assets/logo.png" />
+	<img alt="Vue logo" src="./assets/images/logo.png" />
 	<router-view>
 		<template #slot="{ Component }">
 			<transition name="fade-transform" mode="out-in">
